@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Genera Renovables · v10 · Calculador</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand"><span class="brand-3d"></span> Genera</a>
+    <div class="nav-links">
+      <a href="index.html">Inicio</a>
+      <a href="catalogo.html">Catálogo</a>
+      <a href="instalaciones.html">Instalaciones</a>
+      <a href="quienes.html">Quiénes somos</a>
+      <a href="calculador.html" class="active">Calculador</a>
+    </div>
+    <a href="contacto.html" class="nav-cta">Cotizar <i class="bi bi-arrow-up-right"></i></a>
+  </div>
+</nav>
+
+<section class="hero" style="padding:60px 0 40px">
+  <div class="wrap">
+    <div style="text-align:center;max-width:920px;margin:0 auto">
+      <span class="hero-tag"><span class="dot"></span> Calculador · Versión 2026</span>
+      <h1>Tu ahorro <span class="pop">real</span>,<br>antes de <span class="grad">cotizar</span>.</h1>
+      <p class="lead" style="margin:0 auto">60 segundos. 4 preguntas. Una estimación honesta en pesos argentinos. Sin formularios, sin envío de datos.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section cream">
+  <div class="wrap">
+    <div class="calc-grid-3d">
+      <div class="calc-info">
+        <span class="sec-tag">Simulador</span>
+        <h3>Tu ahorro en <span class="pop">tiempo real</span>.</h3>
+        <p>Combinamos cuatro variables para estimar el ahorro anual real.</p>
+        <ul>
+          <li><i class="bi bi-check-lg"></i> Ahorro mensual y anual real</li>
+          <li><i class="bi bi-check-lg"></i> Equipo recomendado según consumo</li>
+          <li><i class="bi bi-check-lg"></i> Período de recuperación calculado</li>
+          <li><i class="bi bi-check-lg"></i> Sin envío de datos personales</li>
+          <li><i class="bi bi-check-lg"></i> Cálculo basado en obras reales</li>
+        </ul>
+      </div>
+      <div class="calc-card-3d">
+        <div class="calc-step">
+          <label><span class="b">1</span> Personas en el hogar</label>
+          <div class="calc-opts" data-key="pax">
+            <div class="calc-opt" data-v="2">1-2</div>
+            <div class="calc-opt active" data-v="4">3-4</div>
+            <div class="calc-opt" data-v="6">5-6</div>
+            <div class="calc-opt" data-v="8">7+</div>
+          </div>
+        </div>
+        <div class="calc-step">
+          <label><span class="b">2</span> Zona del país</label>
+          <div class="calc-opts" data-key="zona">
+            <div class="calc-opt" data-v="1.15">Norte</div>
+            <div class="calc-opt active" data-v="1">Centro</div>
+            <div class="calc-opt" data-v="0.85">Sur</div>
+          </div>
+        </div>
+        <div class="calc-step">
+          <label><span class="b">3</span> Energía actual</label>
+          <div class="calc-opts" data-key="energia">
+            <div class="calc-opt active" data-v="1">Gas</div>
+            <div class="calc-opt" data-v="2.2">Eléctrico</div>
+            <div class="calc-opt" data-v="1.8">Garrafa</div>
+          </div>
+        </div>
+        <div class="calc-step">
+          <label><span class="b">4</span> ¿Heladas o agua dura?</label>
+          <div class="calc-opts" data-key="extras">
+            <div class="calc-opt active" data-v="0">No</div>
+            <div class="calc-opt" data-v="1">Sí</div>
+          </div>
+        </div>
+        <div class="calc-result">
+          <div class="l">Tu ahorro anual</div>
+          <div class="v" id="result">$180.000</div>
+          <div class="s" id="equipo">Equipo recomendado: Genera Home 180</div>
+        </div>
+        <a href="contacto.html" class="btn-3d" style="margin-top:20px;display:flex;justify-content:center">Cotizar este equipo <i class="bi bi-arrow-right"></i></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-tag">Cómo calculamos</span>
+      <h2>La <span class="pop">fórmula</span> sin magia.</h2>
+      <p>Cuatro variables que determinan tu ahorro real.</p>
+    </div>
+    <div class="clay-grid">
+      <div class="clay-card"><div class="ico"><i class="bi bi-droplet-fill"></i></div><h3>Consumo diario</h3><p>40-60L de ACS por persona/día. Multiplicado por las personas del hogar.</p></div>
+      <div class="clay-card"><div class="ico green"><i class="bi bi-sun-fill"></i></div><h3>Radiación zonal</h3><p>Norte: 6 kWh/m². Centro: 4-5. Sur: 3-4. Determina cuánto rinde tu equipo.</p></div>
+      <div class="clay-card"><div class="ico lime"><i class="bi bi-currency-dollar"></i></div><h3>Costo energía</h3><p>Gas, eléctrico y garrafa tienen costos distintos. Define cuánto ahorrás.</p></div>
+      <div class="clay-card"><div class="ico"><i class="bi bi-bar-chart-fill"></i></div><h3>Eficiencia equipo</h3><p>Nuestros equipos cubren hasta 80% del consumo anual.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section cream">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-tag">Casos reales</span>
+      <h2>Ahorro <span class="grad">medido</span> en obra.</h2>
+      <p>Tres familias, tres equipos, tres facturas que dejaron de llegar.</p>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px">
+      <div class="clay-card"><span class="pill" style="display:inline-flex;padding:5px 12px;background:var(--green);color:var(--paper);border-radius:50px;font-size:11px;font-weight:700;margin-bottom:14px">CASO 01 · HOGAR</span><h3>Familia Ramírez</h3><p style="font-size:14px;color:var(--muted);margin-bottom:18px;line-height:1.55;font-weight:500">4 personas, BA. Reemplazó gas por Home 180 IP.</p><div class="display" style="font-size:42px;color:var(--green);letter-spacing:-1.5px;line-height:1">$198K<span style="font-size:14px;color:var(--muted);font-weight:600">/año</span></div><p style="font-size:13px;margin-top:10px;color:var(--muted);font-weight:600">ROI 4,2 años · $16.500/mes</p></div>
+      <div class="clay-card"><span class="pill" style="display:inline-flex;padding:5px 12px;background:var(--green);color:var(--paper);border-radius:50px;font-size:11px;font-weight:700;margin-bottom:14px">CASO 02 · HOGAR</span><h3>Familia García</h3><p style="font-size:14px;color:var(--muted);margin-bottom:18px;line-height:1.55;font-weight:500">6 personas, Córdoba. Eléctrico → Home 300.</p><div class="display" style="font-size:42px;color:var(--green);letter-spacing:-1.5px;line-height:1">$288K<span style="font-size:14px;color:var(--muted);font-weight:600">/año</span></div><p style="font-size:13px;margin-top:10px;color:var(--muted);font-weight:600">ROI 3,1 años · $24.000/mes</p></div>
+      <div class="clay-card"><span class="pill" style="display:inline-flex;padding:5px 12px;background:var(--green);color:var(--paper);border-radius:50px;font-size:11px;font-weight:700;margin-bottom:14px">CASO 03 · HOTEL</span><h3>Hotel boutique</h3><p style="font-size:14px;color:var(--muted);margin-bottom:18px;line-height:1.55;font-weight:500">12 hab, Mendoza. Split 1000L + 4×S420.</p><div class="display" style="font-size:42px;color:var(--green);letter-spacing:-1.5px;line-height:1">$1,8M<span style="font-size:14px;color:var(--muted);font-weight:600">/año</span></div><p style="font-size:13px;margin-top:10px;color:var(--muted);font-weight:600">ROI 3,8 años · 78% reducción</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-3d">
+  <div class="wrap">
+    <div class="cta-card-3d">
+      <h2>Listo el número.<br>Hablemos del <span class="grad">equipo</span>.</h2>
+      <p>Te dimensionamos el equipo definitivo sin cargo.</p>
+      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+        <a href="contacto.html" class="btn-3d">Pedir cotización <i class="bi bi-arrow-right"></i></a>
+        <a href="https://wa.me/5491162511270" target="_blank" class="btn-soft"><i class="bi bi-whatsapp"></i> WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="ft">
+  <div class="ft-card">
+    <div class="ft-grid">
+      <div><div class="ft-brand"><span class="brand-3d"></span> Genera</div><p class="ft-tag">Fabricantes argentinos de equipos solares térmicos.</p><p style="font-size:13px;line-height:1.7;color:var(--muted);margin:0;font-weight:600">Charcas 2724, Lomas del Mirador</p></div>
+      <div><h5>Productos</h5><a href="catalogo.html">Línea Hogar</a><a href="catalogo.html">Tubos al Vacío</a><a href="catalogo.html">Grandes Sistemas</a></div>
+      <div><h5>Empresa</h5><a href="quienes.html">Quiénes somos</a><a href="instalaciones.html">Instalaciones</a><a href="calculador.html">Calculador</a><a href="contacto.html">Contacto</a></div>
+      <div><h5>Contacto</h5><a href="tel:+541151999526">+54 11 5199-9526</a><a href="mailto:info@generarenovables.com.ar">info@generarenovables.com.ar</a><a href="https://www.instagram.com/genera.termotanques/">@genera.termotanques</a></div>
+    </div>
+    <div class="ft-bottom"><span>© 2026 Genera Renovables</span><span>v10 · 3D / Claymorphism</span></div>
+  </div>
+</footer>
+<a href="https://wa.me/5491162511270" class="wsp" target="_blank"><i class="bi bi-whatsapp"></i></a>
+
+<script>
+  const state={pax:4,zona:1,energia:1,extras:0};
+  function calc(){
+    const base = 45000 * state.pax * state.zona * state.energia * (1 + state.extras*0.1);
+    const result = Math.round(base/1000)*1000;
+    document.getElementById('result').textContent = '$'+result.toLocaleString('es-AR');
+    const equipos = {2:'Home 100',4:'Home 180',6:'Home 300',8:'Pro 500'};
+    document.getElementById('equipo').textContent = 'Equipo recomendado: Genera '+equipos[state.pax];
+  }
+  document.querySelectorAll('.calc-opts').forEach(g=>{
+    const key=g.dataset.key;
+    g.querySelectorAll('.calc-opt').forEach(o=>o.addEventListener('click',()=>{
+      g.querySelectorAll('.calc-opt').forEach(x=>x.classList.remove('active'));
+      o.classList.add('active');
+      state[key]=parseFloat(o.dataset.v);
+      calc();
+    }));
+  });
+</script>
+</body>
+</html>

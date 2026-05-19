@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Genera Home 180 · v10 Claymorphism · Producto</title>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Nunito:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+.breadcrumb{padding:24px 0 0;font-size:13px;color:var(--muted);display:flex;gap:10px;align-items:center;flex-wrap:wrap;font-weight:600}
+.breadcrumb a{color:var(--green);transition:.2s}
+.breadcrumb a:hover{color:var(--ink)}
+.breadcrumb i{font-size:10px;color:var(--muted)}
+.breadcrumb strong{color:var(--ink);font-weight:700}
+.prod-hero{padding:48px 0 90px;position:relative}
+.prod-hero-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:60px;align-items:center}
+.prod-img-wrap{aspect-ratio:1/1;border-radius:48px;background:var(--bg);position:relative;overflow:hidden;box-shadow:var(--clay-shadow);display:flex;align-items:center;justify-content:center}
+.prod-img-wrap img{max-width:75%;max-height:75%;object-fit:contain;filter:drop-shadow(0 24px 40px rgba(5,63,51,.18))}
+.prod-thumbs{position:absolute;bottom:24px;left:50%;transform:translateX(-50%);display:flex;gap:8px;background:var(--bg);border-radius:24px;padding:8px;z-index:2;box-shadow:var(--clay-shadow-sm)}
+.prod-thumbs .t{width:54px;height:54px;border-radius:14px;background:var(--bg);box-shadow:var(--clay-inset);display:flex;align-items:center;justify-content:center;cursor:pointer;transition:.25s;overflow:hidden}
+.prod-thumbs .t.active{background:linear-gradient(135deg,var(--green),var(--green-l));box-shadow:none}
+.prod-thumbs .t img{width:70%;height:70%;object-fit:contain}
+.prod-thumbs .t.active img{filter:brightness(0) invert(1)}
+.prod-info .pill-line{display:inline-flex;align-items:center;gap:8px;padding:8px 18px;background:var(--bg);border-radius:100px;font-size:12px;font-weight:700;color:var(--green);margin-bottom:24px;box-shadow:var(--clay-shadow-sm)}
+.prod-info .pill-line .dot{width:8px;height:8px;border-radius:50%;background:var(--green-m);box-shadow:0 0 12px var(--green-m)}
+.prod-h1{font-family:'Sora',sans-serif;font-size:clamp(48px,5.5vw,80px);font-weight:800;line-height:1;letter-spacing:-3px;margin-bottom:14px;color:var(--ink)}
+.prod-h1 .pop{display:inline-block;background:linear-gradient(135deg,var(--yellow),var(--yellow-d));-webkit-background-clip:text;background-clip:text;color:transparent;position:relative}
+.prod-h1 .pop::after{content:"";position:absolute;left:0;right:0;bottom:8px;height:14px;background:rgba(254,199,7,.3);z-index:-1;border-radius:14px}
+.prod-models{font-size:15px;color:var(--muted);margin-bottom:24px;font-weight:600}
+.prod-desc{font-size:17px;color:var(--txt);margin-bottom:32px;line-height:1.65;max-width:520px;font-weight:500}
+.prod-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:32px}
+.prod-stats .item{padding:20px;background:var(--bg);border-radius:20px;box-shadow:var(--clay-shadow-sm)}
+.prod-stats .item .v{font-family:'Sora',sans-serif;font-size:32px;font-weight:800;color:var(--green);line-height:1;letter-spacing:-1.5px}
+.prod-stats .item .l{font-size:11px;color:var(--muted);margin-top:6px;letter-spacing:.5px;font-weight:600}
+.prod-actions{display:flex;gap:12px;flex-wrap:wrap}
+.spec-block{background:var(--bg);border-radius:32px;padding:12px;overflow:hidden;box-shadow:var(--clay-shadow)}
+.spec-block table{width:100%;border-collapse:collapse}
+.spec-block td{padding:16px 24px;font-size:15px}
+.spec-block tr:nth-child(odd) td{background:rgba(255,255,255,.4)}
+.spec-block tr td:first-child{border-radius:14px 0 0 14px}
+.spec-block tr td:last-child{border-radius:0 14px 14px 0}
+.spec-block .l{color:var(--muted);font-weight:600}
+.spec-block .v{color:var(--ink);font-weight:700;text-align:right}
+.spec-block .v .pop{background:linear-gradient(135deg,var(--yellow),var(--yellow-d));-webkit-background-clip:text;background-clip:text;color:transparent}
+.bullet-list{list-style:none;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.bullet-list li{display:flex;gap:14px;align-items:center;font-size:15px;color:var(--ink);font-weight:600;padding:18px 24px;background:var(--bg);border-radius:20px;box-shadow:var(--clay-shadow-sm)}
+.bullet-list li i{color:var(--paper);background:linear-gradient(135deg,var(--green),var(--green-l));width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:15px;flex-shrink:0;box-shadow:-2px -2px 4px rgba(255,255,255,.3),3px 3px 8px rgba(5,63,51,.3)}
+.related-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.dl-row{display:grid;grid-template-columns:auto 1fr auto;gap:24px;padding:20px 28px;background:var(--bg);border-radius:24px;margin-bottom:12px;align-items:center;transition:.25s;box-shadow:var(--clay-shadow-sm)}
+.dl-row:hover{transform:translateY(-2px);box-shadow:var(--clay-shadow)}
+.dl-row i.bi-file-earmark-pdf{font-size:32px;color:var(--paper);background:linear-gradient(135deg,var(--green),var(--green-l));width:54px;height:54px;border-radius:18px;display:flex;align-items:center;justify-content:center;box-shadow:-2px -2px 4px rgba(255,255,255,.3),3px 3px 8px rgba(5,63,51,.3)}
+.dl-row .t{font-family:'Sora',sans-serif;font-size:16px;color:var(--ink);font-weight:700;letter-spacing:-.3px}
+.dl-row .s{font-size:12px;color:var(--muted);margin-top:2px;font-weight:600}
+.dl-row .dl{font-weight:800;color:var(--green);font-size:13px;letter-spacing:.5px}
+@media(max-width:980px){.prod-hero-grid{grid-template-columns:1fr}.bullet-list{grid-template-columns:1fr}.related-grid{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="index.html" class="brand"><span class="brand-3d"></span> Genera</a>
+    <div class="nav-links">
+      <a href="index.html">Inicio</a>
+      <a href="catalogo.html" class="active">Catálogo</a>
+      <a href="instalaciones.html">Instalaciones</a>
+      <a href="quienes.html">Quiénes somos</a>
+      <a href="calculador.html">Calculador</a>
+    </div>
+    <a href="contacto.html" class="nav-cta">Cotizar <i class="bi bi-arrow-up-right"></i></a>
+  </div>
+</nav>
+
+<section class="wrap breadcrumb">
+  <a href="index.html">Inicio</a><i class="bi bi-chevron-right"></i>
+  <a href="catalogo.html">Catálogo</a><i class="bi bi-chevron-right"></i>
+  <a href="catalogo.html">Línea Hogar</a><i class="bi bi-chevron-right"></i>
+  <strong>Genera Home 180</strong>
+</section>
+
+<section class="prod-hero">
+  <div class="wrap">
+    <div class="prod-hero-grid">
+      <div class="prod-img-wrap">
+        <img src="assets/img/oficial/prod-domesticos.png" alt="Genera Home 180" id="mainImg">
+        <div class="prod-thumbs">
+          <div class="t active"><img src="assets/img/oficial/prod-domesticos.png" alt=""></div>
+          <div class="t"><img src="assets/img/oficial/prod-tubos-vacio.png" alt=""></div>
+          <div class="t"><img src="assets/img/oficial/cat-modelo-180.jpg" alt=""></div>
+          <div class="t"><img src="assets/img/oficial/cat-domesticos.jpg" alt=""></div>
+        </div>
+      </div>
+      <div class="prod-info">
+        <span class="pill-line"><span class="dot"></span> ★ MÁS ELEGIDO · EN STOCK</span>
+        <h1 class="prod-h1">Genera<br>Home <span class="pop">180</span></h1>
+        <div class="prod-models">D180 / I180 / DP180 / IP180 · 180 litros</div>
+        <p class="prod-desc">El equilibrio perfecto entre tamaño, rendimiento y precio. Diseñado para familias de 3 a 4 personas. Sistema indirecto disponible para zonas con heladas o agua dura.</p>
+        <div class="prod-stats">
+          <div class="item"><div class="v">180L</div><div class="l">Capacidad</div></div>
+          <div class="item"><div class="v">$180K</div><div class="l">Ahorro/año</div></div>
+          <div class="item"><div class="v">25y</div><div class="l">Vida útil</div></div>
+        </div>
+        <div class="prod-actions">
+          <a href="contacto.html" class="btn-3d yellow">Pedir cotización <i class="bi bi-arrow-right"></i></a>
+          <a href="https://wa.me/5491162511270" target="_blank" class="btn-soft"><i class="bi bi-whatsapp"></i> WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section cream">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-tag">Beneficios clave</span>
+      <h2>Cuatro razones del<br><span class="pop">más elegido</span>.</h2>
+      <p>El Home 180 combina la capacidad ideal para una familia tipo con la robustez técnica que aguanta el clima argentino.</p>
+    </div>
+    <div class="clay-grid">
+      <div class="clay-card"><div class="ico"><i class="bi bi-piggy-bank-fill"></i></div><h3>$180K al año</h3><p>Ahorro anual estimado en gas natural. Recuperás la inversión en 4 años.</p></div>
+      <div class="clay-card"><div class="ico green"><i class="bi bi-snow"></i></div><h3>Versión indirecta</h3><p>Sistema con intercambiador apto para zonas con heladas. El agua no pasa por el colector.</p></div>
+      <div class="clay-card"><div class="ico lime"><i class="bi bi-droplet-fill"></i></div><h3>Apto agua dura</h3><p>Versión IP180 protegida contra incrustaciones de sarro. Para zonas con dureza alta.</p></div>
+      <div class="clay-card"><div class="ico"><i class="bi bi-speedometer2"></i></div><h3>Soporta 4 bar</h3><p>Presurizable hasta 4 bar. Compatible con redes presurizadas modernas.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-tag">Especificaciones</span>
+      <h2>Lo que hay <span class="pop">debajo</span><br>de la chapa.</h2>
+      <p>Materiales seleccionados para 25 años de vida útil. Cada componente diseñado y ensayado en Argentina.</p>
+    </div>
+    <div class="spec-block">
+      <table>
+        <tr><td class="l">Capacidad</td><td class="v"><span class="pop">180 litros</span></td></tr>
+        <tr><td class="l">Personas</td><td class="v">3 a 4 personas</td></tr>
+        <tr><td class="l">Tanque interno</td><td class="v">Acero inoxidable 304</td></tr>
+        <tr><td class="l">Espesor tanque</td><td class="v">1.2 mm</td></tr>
+        <tr><td class="l">Aislación térmica</td><td class="v">Poliuretano expandido 50 mm</td></tr>
+        <tr><td class="l">Cubierta</td><td class="v">Vidrio templado 4 mm apto granizo</td></tr>
+        <tr><td class="l">Exterior y soporte</td><td class="v">Acero inoxidable</td></tr>
+        <tr><td class="l">Soporte regulable</td><td class="v">Sí · pintura termoconvertible</td></tr>
+        <tr><td class="l">Presión máxima</td><td class="v">4 bar</td></tr>
+        <tr><td class="l">Conexiones</td><td class="v">Metálicas roscadas</td></tr>
+        <tr><td class="l">Sistema disponible</td><td class="v">Directo / Indirecto (I/IP)</td></tr>
+        <tr><td class="l">Certificación</td><td class="v">INTI · IRAM 210004</td></tr>
+        <tr><td class="l">Garantía</td><td class="v"><span class="pop">5 años + 25 vida útil</span></td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="section cream">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-tag">Qué incluye el kit</span>
+      <h2>Todo lo necesario para<br><span class="pop">instalar y usar</span>.</h2>
+    </div>
+    <ul class="bullet-list">
+      <li><i class="bi bi-check-lg"></i> Tanque acumulador inox 304 de 180 litros</li>
+      <li><i class="bi bi-check-lg"></i> Colector solar plano con vidrio templado</li>
+      <li><i class="bi bi-check-lg"></i> Soporte regulable de acero inoxidable</li>
+      <li><i class="bi bi-check-lg"></i> Aislación poliuretano de fábrica</li>
+      <li><i class="bi bi-check-lg"></i> Conexiones metálicas roscadas listas</li>
+      <li><i class="bi bi-check-lg"></i> Manual de instalación impreso</li>
+      <li><i class="bi bi-check-lg"></i> Certificado INTI / IRAM</li>
+      <li><i class="bi bi-check-lg"></i> Garantía oficial 5 años escrita</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-tag">Descargas</span>
+      <h2>Documentación <span class="pop">técnica</span><br>del modelo 180.</h2>
+    </div>
+    <div>
+      <a href="#" class="dl-row" style="text-decoration:none"><i class="bi bi-file-earmark-pdf"></i><div><div class="t">Catálogo Genera Home 180</div><div class="s">PDF · 2.4 MB · Rev. 06/2025</div></div><span class="dl">↓ DESCARGAR</span></a>
+      <a href="#" class="dl-row" style="text-decoration:none"><i class="bi bi-file-earmark-pdf"></i><div><div class="t">Manual de instalación I180</div><div class="s">PDF · 1.8 MB · 11/2024</div></div><span class="dl">↓ DESCARGAR</span></a>
+      <a href="#" class="dl-row" style="text-decoration:none"><i class="bi bi-file-earmark-pdf"></i><div><div class="t">Ensayo INTI IP180</div><div class="s">PDF · 720 KB · Certificación oficial</div></div><span class="dl">↓ DESCARGAR</span></a>
+    </div>
+  </div>
+</section>
+
+<section class="section cream">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="sec-tag">Otros modelos</span>
+      <h2>Tu familia es <span class="pop">otra</span>?<br>Mirá las opciones.</h2>
+    </div>
+    <div class="related-grid">
+      <div class="prod-3d"><span class="pill">100 lts</span><img src="assets/img/oficial/prod-domesticos.png" alt=""><h4>Home 100</h4><div class="lit">1 a 2 personas</div><div class="ah"><span class="l">Ahorro/año</span><span class="v">$90K</span></div></div>
+      <div class="prod-3d"><span class="pill">300 lts</span><img src="assets/img/oficial/prod-domesticos.png" alt=""><h4>Home 300</h4><div class="lit">5 a 6 personas</div><div class="ah"><span class="l">Ahorro/año</span><span class="v">$260K</span></div></div>
+      <div class="prod-3d"><span class="pill">500 lts</span><img src="assets/img/oficial/prod-domesticos.png" alt=""><h4>Pro 500</h4><div class="lit">Semi-industrial</div><div class="ah"><span class="l">Ahorro/año</span><span class="v">$420K</span></div></div>
+      <div class="prod-3d"><span class="pill">Tubos vacío</span><img src="assets/img/oficial/prod-tubos-vacio.png" alt=""><h4>Tubos 200</h4><div class="lit">Alta eficiencia</div><div class="ah"><span class="l">Ahorro/año</span><span class="v">$200K</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-3d">
+  <div class="wrap">
+    <div class="cta-card-3d">
+      <h2>El Home 180 es <span class="grad">tu equipo</span>.<br>Cotizalo hoy.</h2>
+      <p>Cotización sin cargo. Asesoramiento técnico personal. Te respondemos en menos de 24 horas hábiles.</p>
+      <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap">
+        <a href="https://wa.me/5491162511270?text=Hola%2C%20quiero%20cotizar%20el%20Genera%20Home%20180" target="_blank" class="btn-3d"><i class="bi bi-whatsapp"></i> Cotizar este equipo</a>
+        <a href="calculador.html" class="btn-soft"><i class="bi bi-calculator"></i> Simular ahorro</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="ft">
+  <div class="ft-card">
+    <div class="ft-grid">
+      <div><div class="ft-brand"><span class="brand-3d"></span> Genera</div><p class="ft-tag">Fabricantes argentinos de equipos solares térmicos.</p><p style="font-size:13px;line-height:1.7;color:var(--muted);margin:0;font-weight:600">Charcas 2724, Lomas del Mirador</p></div>
+      <div><h5>Productos</h5><a href="catalogo.html">Línea Hogar</a><a href="catalogo.html">Tubos al Vacío</a><a href="catalogo.html">Grandes Sistemas</a></div>
+      <div><h5>Empresa</h5><a href="quienes.html">Quiénes somos</a><a href="instalaciones.html">Instalaciones</a><a href="calculador.html">Calculador</a><a href="contacto.html">Contacto</a></div>
+      <div><h5>Contacto</h5><a href="tel:+541151999526">+54 11 5199-9526</a><a href="mailto:info@generarenovables.com.ar">info@generarenovables.com.ar</a><a href="https://www.instagram.com/genera.termotanques/">@genera.termotanques</a></div>
+    </div>
+    <div class="ft-bottom"><span>© 2026 Genera Renovables</span><span>v10 · Claymorphism / Producto</span></div>
+  </div>
+</footer>
+<a href="https://wa.me/5491162511270" class="wsp" target="_blank"><i class="bi bi-whatsapp"></i></a>
+
+<script>
+  document.querySelectorAll('.prod-thumbs .t').forEach(t=>t.addEventListener('click',()=>{
+    document.querySelectorAll('.prod-thumbs .t').forEach(x=>x.classList.remove('active'));
+    t.classList.add('active');
+    document.getElementById('mainImg').src = t.querySelector('img').src;
+  }));
+</script>
+</body>
+</html>
